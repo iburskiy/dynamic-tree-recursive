@@ -1,0 +1,65 @@
+Select solution:
+
+<br/>
+
+<label>
+    <input type="radio" ng-model="solutionType" value="Recursive"/>
+    recursive
+</label>
+<label>
+    <input type="radio" ng-model="solutionType" value="Iterative"/>
+    iterative
+</label>
+
+<br/><br/>
+
+<div ng-if="solutionType == 'Recursive'">
+    <script type="text/ng-template"  id="node-item-block.html">
+        <button class="btn-primary btn-xs" ng-click="recursiveTreeModel.add(node)">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+        <button class="btn-primary btn-xs" ng-click="recursiveTreeModel.remove(node.id)" ng-hide="node.id == 0">
+            <span class="glyphicon glyphicon-remove"></span>
+        </button>
+        <span ng-show="node.id == 0">Root</span>
+        <span ng-show="node.id != 0 && (!isEdit || (node.id != editedElemId))" ng-click="switchToEdit(node.id)">{{node.name}} </span>
+        <input id="input{{node.id}}" ng-show="isEdit && (node.id == editedElemId)" type="text" ng-blur="switchToText()" ng-model="node.name"/>
+
+        <ul>
+            <li ng-repeat="node in node.nodes" ng-include="'node-item-block.html'"></li>
+        </ul>
+    </script>
+
+    <div ng-controller="RecursiveTreeController">
+        <ul>
+            <li class="recursive-root-block" ng-repeat="node in recursiveTreeModel.getTree()" ng-include="'node-item-block.html'"></li>
+        </ul>
+
+        <br/>
+
+        <div ng-include="'views/local-storage-operations.html'" ng-controller="LocalStorageController"></div>
+    </div>
+</div>
+
+<div ng-if="solutionType == 'Iterative'">
+    <div ng-controller="IterativeTreeController">
+        <ul>
+            <li ng-repeat="node in iterativeTreeModel.getTree()" style="margin-left: {{node.depth*60}}px">
+                <button class="btn-primary btn-xs" ng-click="iterativeTreeModel.add(node, $index)">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+                <button class="btn-primary btn-xs" ng-click="iterativeTreeModel.remove($index)" ng-hide="node.parent == null">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+                <span ng-show="node.parent == null">Root</span>
+                <span ng-show="node.parent != null && (!isEdit || ($index != editedElemId))" ng-click="switchToEdit($index)">{{node.name}} </span>
+                <input id="input{{$index}}" ng-show="isEdit && ($index == editedElemId)" type="text" ng-blur="switchToText()" ng-model="node.name"/>
+            </li>
+        </ul>
+
+        <br/>
+
+        <div ng-include="'views/local-storage-operations.html'" ng-controller="LocalStorageController"></div>
+    </div>
+</div>
+
