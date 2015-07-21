@@ -1,8 +1,7 @@
 'use strict';
 
-angular.module( 'dynamic-tree' ).
-    controller("LocalStorageController", ['$scope', 'localStorageService', 'treeModel',
-        function($scope, localStorageService, treeModel) {
+angular.module( 'dynamic-tree-recursive' ).controller("LocalStorageController", ['$scope', 'localStorageService', 'treeModel',
+    function($scope, localStorageService, treeModel) {
 
         //Saves tree to Local Storage
         $scope.save = function() {

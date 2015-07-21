@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module( 'dynamic-tree' ).factory('localStorageService', ['CONSTANTS', function(CONSTANTS) {
+angular.module( 'dynamic-tree-recursive' ).factory('localStorageService', ['CONSTANTS', function(CONSTANTS) {
 
     return {
         //Saves tree to Local Storage

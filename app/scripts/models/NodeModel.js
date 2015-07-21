@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('dynamic-tree').factory('NodeModel', function() {
+angular.module('dynamic-tree-recursive').factory('NodeModel', function() {
 
     //model for Node Item
     function NodeModel ( id, name ) {

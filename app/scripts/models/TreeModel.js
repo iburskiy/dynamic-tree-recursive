@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module( 'dynamic-tree' ).factory('treeModel', ['NodeModel', 'treeService', function(NodeModel, treeService) {
+angular.module( 'dynamic-tree-recursive' ).factory('treeModel', ['NodeModel', 'treeService', function(NodeModel, treeService) {
 
     //private field
     var tree = [new NodeModel( 0, "Element" )];

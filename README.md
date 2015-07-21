@@ -1,4 +1,4 @@
-# dynamic-tree
+# dynamic-tree-recursive
 
 The goal is to render a tree of objects.
 
@@ -21,7 +21,7 @@ Example of the structure:
     - Subchild
 
 ##Features
-- Two solutions for the task: iterative and recursive
+- Recursive solution for the task
 - User is able to add/edit/delete child objects anywhere in the tree 
 - User is able to add subchildren infinitely.
 - It is possible to store the state in local storage.

@@ -10,7 +10,7 @@
     "angular-mocks": "^1.3.0"
   },
   "appPath": "app",
-  "moduleName": "dynamic-tree",
+  "moduleName": "dynamic-tree-recursive",
   "overrides": {
     "bootstrap": {
       "main": [

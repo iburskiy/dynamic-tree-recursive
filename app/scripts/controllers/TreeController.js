@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module( 'dynamic-tree' ).controller("TreeController", ['$scope', 'treeModel', function($scope, treeModel) {
+angular.module( 'dynamic-tree-recursive' ).controller("TreeController", ['$scope', 'treeModel', function($scope, treeModel) {
 
-        $scope.treeModel = treeModel;
+    $scope.treeModel = treeModel;
 
-    }]);
+}]);

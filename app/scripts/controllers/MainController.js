@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name dynamic-tree.controller:MainController
+ * @name dynamic-tree-recursive.controller:MainController
  * @description
  * # MainController
- * Controller of the dynamic-tree
+ * Controller of the dynamic-tree-recursive
  */
-angular.module( 'dynamic-tree' )
-    .controller( 'MainController', ['$scope', '$timeout', 'CONSTANTS', function ( $scope, $timeout, CONSTANTS ) {
+angular.module( 'dynamic-tree-recursive' )
+    .controller( 'MainController', ['$scope', '$timeout', function ( $scope, $timeout ) {
 
         //Switches Node to Edit Mode: HTML input with current Node Name appears
         $scope.switchToEdit = function(index) {
