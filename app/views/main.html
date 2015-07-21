@@ -1,19 +1,4 @@
-Select solution:
-
-<br/>
-
-<label>
-    <input type="radio" ng-model="solutionType" value="Recursive"/>
-    recursive
-</label>
-<label>
-    <input type="radio" ng-model="solutionType" value="Iterative"/>
-    iterative
-</label>
-
-<br/><br/>
-
-<div ng-if="solutionType == 'Recursive'">
+<div>
     <script type="text/ng-template"  id="node-item-block.html">
         <button class="btn-primary btn-xs" ng-click="recursiveTreeModel.add(node)">
             <span class="glyphicon glyphicon-plus"></span>
@@ -41,25 +26,29 @@ Select solution:
     </div>
 </div>
 
-<div ng-if="solutionType == 'Iterative'">
-    <div ng-controller="IterativeTreeController">
-        <ul>
-            <li ng-repeat="node in iterativeTreeModel.getTree()" style="margin-left: {{node.depth*60}}px">
-                <button class="btn-primary btn-xs" ng-click="iterativeTreeModel.add(node, $index)">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </button>
-                <button class="btn-primary btn-xs" ng-click="iterativeTreeModel.remove($index)" ng-hide="node.parent == null">
-                    <span class="glyphicon glyphicon-remove"></span>
-                </button>
-                <span ng-show="node.parent == null">Root</span>
-                <span ng-show="node.parent != null && (!isEdit || ($index != editedElemId))" ng-click="switchToEdit($index)">{{node.name}} </span>
-                <input id="input{{$index}}" ng-show="isEdit && ($index == editedElemId)" type="text" ng-blur="switchToText()" ng-model="node.name"/>
-            </li>
-        </ul>
+<div ng-controller="LocalStorageController">
+    <button class="btn btn-success" ng-click="save()">Save</button>
+
+    <span ng-show="!isTreeSaved()">
+        <br/>
+
+        *Operation with Local Storage
+    </span>
+
+    <span ng-show="isTreeSaved()">
+        <button class="btn btn-success" ng-click="retrieve()">Retrieve</button>
+        <button class="btn btn-success" ng-click="delete()">Delete</button>
 
         <br/>
 
-        <div ng-include="'views/local-storage-operations.html'" ng-controller="LocalStorageController"></div>
-    </div>
+        *Operations with Local Storage
+
+        <br/><br/><br/>
+
+        <small>
+            (One state of tree has been saved in Local Storage. Press "Retrieve" to read the state. Press "Delete" to remove the
+            state)
+        </small>
+    </span>
 </div>
 

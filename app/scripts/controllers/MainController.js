@@ -10,8 +10,6 @@
 angular.module( 'dynamic-tree' )
     .controller( 'MainController', ['$scope', '$timeout', 'CONSTANTS', function ( $scope, $timeout, CONSTANTS ) {
 
-        $scope.solutionType = CONSTANTS.RECURSIVE;
-
         //Switches Node to Edit Mode: HTML input with current Node Name appears
         $scope.switchToEdit = function(index) {
             $scope.editedElemId = index;

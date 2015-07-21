@@ -4,26 +4,26 @@ angular.module( 'dynamic-tree' ).factory('localStorageService', ['CONSTANTS', fu
 
     return {
         //Saves tree to Local Storage
-        save: function ( tree, solutionType ) {
+        save: function ( tree ) {
             var treeJson = angular.toJson( tree );
-            localStorage.setItem(CONSTANTS.TREE_STATE + solutionType, treeJson);
+            localStorage.setItem(CONSTANTS.TREE_STATE, treeJson);
             console.log('The following tree has beed saved: ' + treeJson);
         },
 
         //Reads tree from Local Storage
-        retrieve: function (solutionType) {
-            var retrievedObject = localStorage.getItem(CONSTANTS.TREE_STATE + solutionType);
+        retrieve: function () {
+            var retrievedObject = localStorage.getItem(CONSTANTS.TREE_STATE);
             return JSON.parse(retrievedObject);
         },
 
         //Deletes tree from Local Storage
-        delete: function (solutionType) {
-            localStorage.removeItem(CONSTANTS.TREE_STATE + solutionType);
+        delete: function () {
+            localStorage.removeItem(CONSTANTS.TREE_STATE);
         },
 
         //Checks if tree is saved in Local Storage
-        isTreeSaved: function (solutionType) {
-            if (localStorage.getItem(CONSTANTS.TREE_STATE + solutionType) === null) {
+        isTreeSaved: function () {
+            if (localStorage.getItem(CONSTANTS.TREE_STATE) === null) {
                 return false;
             }
             return true;
