@@ -25,31 +25,6 @@ angular.module( 'dynamic-tree' ).factory('treeService', function() {
         generateNodeId: function() {
             nodeId = nodeId + 1;
             return nodeId;
-        },
-
-        /*Used for Iterative solution:
-         Filters through array and excludes 'obj' from 'arr' if removed node wth 'index' is one of its ancestors*/
-        removeNodeByIndex: function( arr, index) {
-
-            var tree = _.filter(arr, function(obj) {
-                return removedIndexNotObjAncestor(obj);
-            } );
-
-            //Returns false if removed object with "index" is parent of obj to exclude it from tree
-            function removedIndexNotObjAncestor(obj) {
-                var result = null;
-                if( obj === null) {
-                    return true;
-                } else if( angular.toJson(arr[index]) === angular.toJson(obj)) {
-                    return false;
-                } else {
-                    result = removedIndexNotObjAncestor(obj.parent);
-                }
-
-                return result;
-            }
-
-            return tree;
         }
     };
 });
