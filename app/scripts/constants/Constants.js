@@ -1,4 +1,4 @@
-//conflicting change in MASTER
+//merged conflicting change in MASTER and Branch 
 'use strict';
 
 angular.module( 'dynamic-tree-recursive' ).constant('CONSTANTS', (function() {
