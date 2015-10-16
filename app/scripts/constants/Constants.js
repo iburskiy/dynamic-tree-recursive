@@ -1,3 +1,4 @@
+//conflicting change in Branch
 'use strict';
 
 angular.module( 'dynamic-tree-recursive' ).constant('CONSTANTS', (function() {
