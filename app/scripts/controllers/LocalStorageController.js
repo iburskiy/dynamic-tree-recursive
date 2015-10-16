@@ -1,4 +1,3 @@
-//non-conflicting change in Branch
 'use strict';
 
 angular.module( 'dynamic-tree-recursive' ).controller("LocalStorageController", ['$scope', 'localStorageService', 'treeModel',
@@ -28,4 +27,3 @@ angular.module( 'dynamic-tree-recursive' ).controller("LocalStorageController", 
             return localStorageService.isTreeSaved();
         };
     }]);
-//non-conflicting change in MASTER
