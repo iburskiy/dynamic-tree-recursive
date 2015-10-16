@@ -27,3 +27,4 @@ angular.module( 'dynamic-tree-recursive' ).controller("LocalStorageController", 
             return localStorageService.isTreeSaved();
         };
     }]);
+//non-conflicting change in MASTER
